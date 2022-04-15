@@ -55,7 +55,7 @@ public class GameImplementation {
 
     public static void isGameOver(String chars) {
         if (!gameOver) {
-            // cross check
+            // cross check \
             if ((aBoard.getCharAtIndex(0,0) == chars) &&
                     (aBoard.getCharAtIndex(1,1) == chars) &&
             (aBoard.getCharAtIndex(2,2) == chars)) {
@@ -63,7 +63,15 @@ public class GameImplementation {
                 gameOver = true;
                 return;
             }
-            // row check
+            // cross check2 /
+            if ((aBoard.getCharAtIndex(0,2) == chars) &&
+                    (aBoard.getCharAtIndex(1,1) == chars) &&
+            (aBoard.getCharAtIndex(2,0) == chars)) {
+                winner = chars;
+                gameOver = true;
+                return;
+            }
+            // row check _ -- ^^
             for (int i = 0; i < 3; i++) {
                 if ((aBoard.getCharAtIndex(i,0) == chars) &&
                         (aBoard.getCharAtIndex(i,1) == chars) &&
@@ -73,7 +81,7 @@ public class GameImplementation {
                     return;
                 }
             }
-            // column check
+            // column check | | |
             for (int i = 0; i < 3; i++) {
                 if ((aBoard.getCharAtIndex(0,i) == chars) &&
                         (aBoard.getCharAtIndex(1,i) == chars) &&
